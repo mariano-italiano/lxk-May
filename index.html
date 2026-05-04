@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Kwiaciarnia Online 🌸</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+        }
+
+        header {
+            background: #ff4d6d;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 28px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .product {
+            background: white;
+            border-radius: 15px;
+            margin: 15px;
+            padding: 15px;
+            width: 220px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        button {
+            background: #ff4d6d;
+            border: none;
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #ff1e4d;
+        }
+
+        .cart {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #ff4d6d;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    🌸 Kwiaciarnia Online 🌸
+</header>
+
+<div class="cart">
+    🛒 Koszyk: <span id="cartCount">0</span>
+</div>
+
+<div class="container">
+    <div class="product">
+        <img src="https://picsum.photos/200?random=1">
+        <h3>Róże</h3>
+        <p>50 zł</p>
+        <button onclick="addToCart()">Dodaj do koszyka</button>
+    </div>
+
+    <div class="product">
+        <img src="https://picsum.photos/200?random=2">
+        <h3>Tulipany</h3>
+        <p>35 zł</p>
+        <button onclick="addToCart()">Dodaj do koszyka</button>
+    </div>
+
+    <div class="product">
+        <img src="https://picsum.photos/200?random=3">
+        <h3>Storczyki</h3>
+        <p>80 zł</p>
+        <button onclick="addToCart()">Dodaj do koszyka</button>
+    </div>
+
+    <div class="product">
+        <img src="https://picsum.photos/200?random=4">
+        <h3>Słoneczniki</h3>
+        <p>40 zł</p>
+        <button onclick="addToCart()">Dodaj do koszyka</button>
+    </div>
+</div>
+
+<footer>
+    © 2026 Kwiaciarnia Online
+</footer>
+
+<script>
+    let cart = 0;
+
+    function addToCart() {
+        cart++;
+        document.getElementById("cartCount").innerText = cart;
+
+        // animacja
+        document.body.style.background = "linear-gradient(120deg, #a1c4fd, #c2e9fb)";
+        setTimeout(() => {
+            document.body.style.background = "linear-gradient(120deg, #ff9a9e, #fad0c4)";
+        }, 300);
+    }
+</script>
+
+</body>
+</html>
