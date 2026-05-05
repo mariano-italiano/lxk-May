@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Sklep z książkami</title>
+<style>
+body { font-family: Arial; margin:0; background:#fafafa;}
+header { background:#222; color:white; padding:15px; text-align:center;}
+.container { padding:20px; }
+
+.card {
+  background:white;
+  border-radius:10px;
+  padding:15px;
+  margin:10px;
+  display:inline-block;
+  width:250px;
+  box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.card img { width:100%; border-radius:10px;}
+
+button {
+  background:green;
+  color:white;
+  border:none;
+  padding:10px;
+  cursor:pointer;
+  margin-top:10px;
+}
+
+button:hover { background:darkgreen;}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>📚 Sklep z książkami</h1>
+</header>
+
+<div class="container" id="books"></div>
+
+<script>
+const books = [
+  {title:"Wiedźmin", price:"39 zł", img:"https://source.unsplash.com/400x300/?book"},
+  {title:"Harry Potter", price:"45 zł", img:"https://source.unsplash.com/400x300/?fantasy-book"},
+  {title:"Hobbit", price:"35 zł", img:"https://source.unsplash.com/400x300/?novel"}
+];
+
+const container = document.getElementById("books");
+
+books.forEach(book => {
+  container.innerHTML += `
+    <div class="card">
+      <img src="${book.img}">
+      <h3>${book.title}</h3>
+      <p>${book.price}</p>
+      <button onclick="buy('${book.title}')">Kup</button>
+    </div>
+  `;
+});
+
+function buy(title){
+  alert("Dodano do koszyka: " + title);
+}
+</script>
+
+</body>
+</html>

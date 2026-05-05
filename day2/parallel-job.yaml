@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: parallel-job
+  labels:
+    project: workshop
+spec:
+  backoffLimit: 0 # nie uznajemy failów
+  parallelism: 5 # na raz odpalamy 5 podów z Joba
+  completions: 10 # joba uznajemy za Complete jak 10 Podow sie wykona
+  ttlSecondsAfterFinished: 30
+  template:
+    metadata:
+      labels:
+        project: workshop
+    spec:
+      containers:
+        - name: echo
+          image: busybox
+          command: ["sh", "-c", "date; echo 'say Hello from job Pod'; sleep 15"]
+      restartPolicy: Never

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Wypożyczalnia aut</title>
+<style>
+body { font-family: Arial; margin:0; background:#f4f4f4;}
+header { background:#111; color:white; padding:15px; text-align:center;}
+.container { padding:20px; }
+.card {
+  background:white;
+  border-radius:10px;
+  padding:15px;
+  margin:10px;
+  display:inline-block;
+  width:250px;
+  box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+.card img { width:100%; border-radius:10px;}
+button {
+  background:#007bff;
+  color:white;
+  border:none;
+  padding:10px;
+  cursor:pointer;
+  margin-top:10px;
+}
+button:hover { background:#0056b3;}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🚗 Wypożyczalnia samochodów</h1>
+</header>
+
+<div class="container" id="cars"></div>
+
+<script>
+const cars = [
+  {name:"BMW M4", price:"500 zł/dzień", img:"https://source.unsplash.com/400x300/?bmw"},
+  {name:"Audi A6", price:"350 zł/dzień", img:"https://source.unsplash.com/400x300/?audi"},
+  {name:"Tesla Model 3", price:"450 zł/dzień", img:"https://source.unsplash.com/400x300/?tesla"}
+];
+
+const container = document.getElementById("cars");
+
+cars.forEach(car => {
+  container.innerHTML += `
+    <div class="card">
+      <img src="${car.img}">
+      <h3>${car.name}</h3>
+      <p>${car.price}</p>
+      <button onclick="rent('${car.name}')">Wypożycz</button>
+    </div>
+  `;
+});
+
+function rent(name){
+  alert("Wypożyczono: " + name);
+}
+</script>
+
+</body>
+</html>
