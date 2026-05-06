@@ -1,0 +1,8 @@
+# branch name for my app
+branch=develop
+
+# version of my app
+version=1.0
+
+# app name - descriptive
+appName="moja super aplikacja"
